@@ -93,6 +93,9 @@ export default function Navigation() {
               <ListItemButton
                 component="a"
                 href={item.href}
+                component={HashLink}
+                to={item.href}
+                smooth
                 onClick={() => setDrawerOpen(false)}
                 sx={{
                   color: item.standOut ? "common.white" : "text.primary",
