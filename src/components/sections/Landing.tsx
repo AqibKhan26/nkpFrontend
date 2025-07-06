@@ -18,7 +18,7 @@ function Landing() {
         <MidoriMining />
         <WhyNKP />
         <Phases />
-        {/* <Team /> */}
+        <Team />
         <Partners />
         <Newsletter />
     </>

@@ -5,9 +5,13 @@ import { Button } from '@mui/material';
 const MotionBox = motion(Box);
 const MotionTypography = motion(Typography);
 
+import { useSwapModal  } from "contexts/SwapModalContext";
+
 export default function CatalystSection() {
+  const { openSwap } = useSwapModal();
+
   return (
-    <Box component="section" sx={{ bgcolor: 'white', py: { xs: 8, md: 10 } }}>
+    <Box id="about" component="section" sx={{ bgcolor: 'white', py: { xs: 8, md: 10 } }}>
       <Container maxWidth="md">
         <MotionTypography
           initial={{ opacity: 0, y: 30 }}
@@ -83,6 +87,7 @@ export default function CatalystSection() {
             >
               <Button
                 variant="contained"
+                onClick={() => openSwap()}
                 sx={{
                   maxWidth: '200px',
                   height: '60px',

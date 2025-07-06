@@ -19,52 +19,11 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { Shield, Award, TrendingUp } from 'lucide-react';
+import { useSwapModal  } from "contexts/SwapModalContext";
 
 export default function WhyNKP() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showSwap, setShowSwap] = useState(false);
-  const [priceData, setPriceData] = useState(null);
-  const [isLoadingPrice, setIsLoadingPrice] = useState(false);
-
-  useEffect(() => {
-    const nav = document.querySelector('nav');
-    if (showSwap && nav) nav.style.display = 'none';
-    else if (nav) nav.style.display = 'block';
-    return () => {
-      if (nav) nav.style.display = 'block';
-    };
-  }, [showSwap]);
-
-  const fetchNKPPrice = async () => {
-    setIsLoadingPrice(true);
-    try {
-      const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0xBA123E7caD737B7F8D4580d04E525724c3C80f1A');
-      if (response.ok) {
-        const data = await response.json();
-        const pair = data.pair;
-        setPriceData({
-          priceUsd: parseFloat(pair.priceUsd).toFixed(6),
-          priceChange24h: parseFloat(pair.priceChange?.h24) || 0,
-          marketCap: pair.marketCap || 0,
-          fdv: pair.fdv || 0,
-          volume24h: pair.volume?.h24 || 0,
-          liquidity: pair.liquidity?.usd || 0
-        });
-      }
-    } catch (e) {
-      console.error('Failed to fetch NKP price:', e);
-    } finally {
-      setIsLoadingPrice(false);
-    }
-  };
-
-  useEffect(() => {
-    if (showSwap) {
-      fetchNKPPrice();
-      const interval = setInterval(fetchNKPPrice, 30000);
-      return () => clearInterval(interval);
-    }
-  }, [showSwap]);
+  const { openSwap } = useSwapModal();
 
   return (
     <Box id="why-nkp" sx={{ py: 12, background: 'linear-gradient(to bottom right, #111827, #000)' }}>
@@ -94,7 +53,7 @@ export default function WhyNKP() {
           <Paper sx={{ mt: 8, p: 5, backgroundColor: 'rgba(255,255,255,0.1)', textAlign: 'center', backdropFilter: 'blur(6px)' }}>
             <Typography variant="h3" sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #0d8548, #9fc45b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 2 }}>NKP delivers what matters</Typography>
             <Typography variant="body1" color="#fff" sx={{ mb: 4 }}>Real assets, revenue, transparency, and scale potential. It is where purpose meets performance.</Typography>
-            <Button variant="contained" onClick={() => setShowSwap(true)} sx={{ background: 'linear-gradient(to right, #0d8548, #9fc45b)', color: '#fff', px: 4, py: 1.5, fontWeight: 'bold' }}>Buy NKP</Button>
+            <Button variant="contained" onClick={() => openSwap()} sx={{ background: 'linear-gradient(to right, #0d8548, #9fc45b)', color: '#fff', px: 4, py: 1.5, fontWeight: 'bold' }}>Buy NKP</Button>
           </Paper>
         </motion.div>
 
@@ -205,36 +164,6 @@ export default function WhyNKP() {
             </Box>
           </Paper>
         </motion.div>
-
-        {/* Swap Modal */}
-        {showSwap && (
-          <Box position="fixed" top={0} left={0} right={0} bottom={0} zIndex={9999} bgcolor="rgba(0,0,0,0.75)" display="flex" justifyContent="center" alignItems="center" p={2}>
-            <Box bgcolor="#111827" borderRadius={4} p={2} maxWidth={400} width="100%" position="relative">
-              <IconButton onClick={() => setShowSwap(false)} sx={{ position: 'absolute', top: 8, right: 8, color: 'white' }}>
-                <CloseIcon />
-              </IconButton>
-              <Typography variant="h6" color="#fff" mb={2}>Buy NKP</Typography>
-              <Paper sx={{ p: 2, backgroundColor: '#1f2937', mb: 2 }}>
-                {isLoadingPrice ? (
-                  <Typography color="gray">Loading...</Typography>
-                ) : priceData ? (
-                  <>
-                    <Typography color="#fff" variant="body2">Price: ${priceData.priceUsd}</Typography>
-                    <Typography color="#fff" variant="body2">24h Change: {priceData.priceChange24h.toFixed(2)}%</Typography>
-                    <Typography color="gray" variant="caption">MCap: ${(priceData.marketCap / 1e6).toFixed(1)}M • FDV: ${(priceData.fdv / 1e6).toFixed(1)}M</Typography>
-                  </>
-                ) : <Typography color="gray">Unavailable</Typography>}
-              </Paper>
-              <iframe
-                src="https://app.uniswap.org/#/swap?outputCurrency=0x11Fa1193743061591CBe47c9E0765EAeBaa3a046&inputCurrency=ETH&chain=mainnet"
-                style={{ border: 0, borderRadius: '12px' }}
-                width="100%"
-                height="500px"
-                title="Uniswap"
-              />
-            </Box>
-          </Box>
-        )}
       </Container>
     </Box>
   );

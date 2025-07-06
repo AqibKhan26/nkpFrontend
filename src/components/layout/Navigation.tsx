@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -16,40 +16,27 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-
-const navItems = [
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Team", href: "/#team" },
-  { name: "Marketplace", href: "/marketplace" },
-  { name: "Whitepaper", href: "/whitepaper" },
-  {
-    name: "Buy NKP",
-    standOut: true,
-    onClick: () => {
-      const buyButton = document.querySelector('[data-buy-nkp]');
-      if (buyButton) {
-        document.body.style.transition = "opacity 0.3s ease";
-        document.body.style.opacity = "0.3";
-
-        buyButton.scrollIntoView({ behavior: "instant", block: "center" });
-
-        setTimeout(() => {
-          document.body.style.opacity = "1";
-          (buyButton as HTMLElement).click();
-          setTimeout(() => {
-            document.body.style.transition = "";
-          }, 300);
-        }, 150);
-      }
-    },
-  },
-];
+import { useSwapModal } from "contexts/SwapModalContext";
+import { HashLink } from 'react-router-hash-link';
 
 export default function Navigation() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
+  const { openSwap } = useSwapModal();
   const isMdUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  const navItems = [
+    { name: "About", href: "/#about" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Team", href: "/#team" },
+    { name: "Marketplace", href: "/marketplace" },
+    { name: "Whitepaper", href: "/whitepaper" },
+    {
+      name: "Buy NKP",
+      standOut: true,
+      onClick: () => openSwap(),
+    },
+  ];
 
   const handleLogoClick = () => {
     if (window.location.pathname === "/") {
@@ -199,24 +186,22 @@ export default function Navigation() {
           <Box sx={{ display: "flex", gap: 3 }}>
             {navItems.map((item) =>
               item.onClick ? (
-                <Button
-                  key={item.name}
-                  onClick={item.onClick}
-                  variant={item.standOut ? "contained" : "text"}
-                  color={item.standOut ? "primary" : "inherit"}
-                  sx={{
-                    fontWeight: "800",
-                    textShadow: "1px 1px 2px rgba(0,0,0,0.7)",
-                    textTransform: "none",
-                    background: 'linear-gradient(90deg, #0d8548, #9fc45b)',
-                    color: '#fff',
-                    '&:hover': {
-                      background: 'linear-gradient(90deg, #0b6c3a, #85b143)',
-                    },
-                  }}
-                >
-                  {item.name}
-                </Button>
+                <HashLink smooth to={item.to} style={{ textDecoration: "none" }}>
+                  <Button
+                    key={item.name}
+                    sx={{
+                      textTransform: "none",
+                      fontWeight: item.standOut ? "bold" : "normal",
+                      color: "#fff",
+                      background: item.standOut ? "linear-gradient(90deg, #0d8548, #9fc45b)" : "transparent",
+                      '&:hover': {
+                        background: item.standOut ? "linear-gradient(90deg, #0b6c3a, #85b143)" : "rgba(255,255,255,0.1)"
+                      },
+                    }}
+                  >
+                    {item.name}
+                  </Button>
+                </HashLink>
               ) : (
                 <Button
                   key={item.name}

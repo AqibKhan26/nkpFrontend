@@ -50,7 +50,7 @@ export default function NKPValuePortfolio() {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4} justifyContent="center" display="flex">
           {[{
             title: "CHACO VIVO",
             subtitle: "Largest VCS-CCBS REDD+ conservation project in Paraguayan Chaco ecosystem",
@@ -66,21 +66,32 @@ export default function NKPValuePortfolio() {
             link: "/sfm-waste",
             bg: "#9fc45b"
           }].map(({ title, subtitle, description, image, link, bg }) => (
-            <Grid item xs={12} md={6} key={title}>
+            <Grid item xs={12} md={6} key={title} display="flex">
               <motion.div
                 initial={{ opacity: 0, x: bg === "#0d8548" ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <Card sx={{ backgroundColor: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", height: '650px', flexDirection:'column', justifyContent: 'space-between' }}>
+                <Card sx={{
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  backdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  color: "#fff",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "100%",
+                  width: "100%"
+                }}>
                   <CardMedia
                     component="img"
                     height="250"
                     image={image}
                     alt={title}
+                    sx={{ objectFit: "cover" }}
                   />
-                  <CardContent>
+                  <CardContent sx={{ flexGrow: 1 }}>
                     <Typography variant="h4" fontWeight="bold" color='#fff' gutterBottom textAlign='left'>{title}</Typography>
                     <Typography variant="h5" textAlign='left' sx={{ color: bg }}>{subtitle}</Typography>
                     <Typography variant="h6" textAlign='left' sx={{ color: "#fff", mt: 2 }}>{description}</Typography>
@@ -113,6 +124,6 @@ export default function NKPValuePortfolio() {
           ))}
         </Grid>
       </Container>
-    </Box>
+    </Box >
   );
 }

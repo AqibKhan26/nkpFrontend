@@ -11,6 +11,7 @@ import Hero from './components/sections/Hero'
 import Footer from './components/sections/Footer'
 import MKBox from "components/MKBox";
 import Landing from 'components/sections/Landing';
+import { SwapModalProvider } from "contexts/SwapModalContext";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,11 +20,13 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navigation />
-        <Landing />
-        <MKBox px={1}>
-          <Footer />
-        </MKBox>
+        <SwapModalProvider>
+          <Navigation />
+          <Landing />
+          <MKBox px={1}>
+            <Footer />
+          </MKBox>
+        </SwapModalProvider>
       </ThemeProvider>
     </>
   )

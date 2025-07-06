@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Leaf, Globe, TrendingUp, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 export default function About() {
   const [imageLoaded, setImageLoaded] = useState(false);

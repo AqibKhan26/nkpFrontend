@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div class="office center">
-            <button onclick="window.location.href='/'" class="logo-button">
+            <button onClick="window.location.href='/'" class="logo-button">
               <img
                 src="https://violet-abundant-gamefowl-535.mypinata.cloud/ipfs/bafkreihzchdvovtotd3hzhlhgk2xrvir2zbuhk5zh2clxqkcaqly66yklu"
                 alt="Non Kyoto Protocol"
