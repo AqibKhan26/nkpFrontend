@@ -186,42 +186,47 @@ export default function Navigation() {
           <Box sx={{ display: "flex", gap: 3 }}>
             {navItems.map((item) =>
               item.onClick ? (
-                <HashLink smooth to={item.to} style={{ textDecoration: "none" }}>
+                <Button
+                  key={item.name}
+                  onClick={item.onClick}
+                  variant={item.standOut ? "contained" : "text"}
+                  color={item.standOut ? "primary" : "inherit"}
+                  sx={{
+                    fontWeight: "800",
+                    textShadow: "1px 1px 2px rgba(0,0,0,0.7)",
+                    textTransform: "none",
+                    background: 'linear-gradient(90deg, #0d8548, #9fc45b)',
+                    color: '#fff',
+                    '&:hover': {
+                      background: 'linear-gradient(90deg, #0b6c3a, #85b143)',
+                    },
+                  }}
+                >
+                  {item.name}
+                </Button>
+              ) : (
+                <HashLink smooth to={item.href} style={{ textDecoration: "none" }}>
                   <Button
                     key={item.name}
+                    component="a"
+                    href={item.href}
+                    variant={item.standOut ? "contained" : "text"}
+                    color={item.standOut ? "primary" : "inherit"}
                     sx={{
+                      color: '#fff',
+                      fontWeight: "900",
+                      textShadow: "1px 1px 2px rgba(0,0,0,0.7)",
                       textTransform: "none",
-                      fontWeight: item.standOut ? "bold" : "normal",
-                      color: "#fff",
-                      background: item.standOut ? "linear-gradient(90deg, #0d8548, #9fc45b)" : "transparent",
-                      '&:hover': {
-                        background: item.standOut ? "linear-gradient(90deg, #0b6c3a, #85b143)" : "rgba(255,255,255,0.1)"
+                      "&:hover": {
+                        opacity: 0.8,
+                        color: '#0b6c3a',
                       },
                     }}
                   >
                     {item.name}
                   </Button>
                 </HashLink>
-              ) : (
-                <Button
-                  key={item.name}
-                  component="a"
-                  href={item.href}
-                  variant={item.standOut ? "contained" : "text"}
-                  color={item.standOut ? "primary" : "inherit"}
-                  sx={{
-                    color: '#fff',
-                    fontWeight: "900",
-                    textShadow: "1px 1px 2px rgba(0,0,0,0.7)",
-                    textTransform: "none",
-                    "&:hover": {
-                      opacity: 0.8,
-                      color: '#0b6c3a',
-                    },
-                  }}
-                >
-                  {item.name}
-                </Button>
+
               )
             )}
           </Box>
