@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const platformLinks = [
-    { name: 'Mission', href: '#mission' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Team', href: '#team' }
+    { name: 'About', href: '/#about' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Team', href: '/#team' }
   ];
 
   const resourceLinks = [
@@ -31,10 +30,9 @@ export default function Footer() {
           <div class="column text-center">
             <h4>Platform</h4>
             <ul>
-              <li><a href="#mission">Mission</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#team">Team</a></li>
+              <li><a href="/#about">About</a></li>
+              <li><a href="/#projects">Projects</a></li>
+              <li><a href="/#team">Team</a></li>
             </ul>
           </div>
           <div class="column text-center">

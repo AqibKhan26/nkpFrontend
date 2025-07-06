@@ -7,7 +7,7 @@ import WhyNKP from 'components/sections/WhyNKP'
 import Phases from 'components/sections/Phases'
 import Team from 'components/sections/Team'
 import Partners from 'components/sections/Partners'
-import Newsletter from './Newsletter'
+import Newsletter from 'components/sections/Newsletter'
 function Landing() {
   return (
     <>
