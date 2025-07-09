@@ -16,6 +16,8 @@ import { SwapModalProvider } from "contexts/SwapModalContext";
 import Privacy from 'pages/Privacy';
 import Disclaimer from 'pages/Disclaimer';
 import Terms from 'pages/Terms';
+import ChacoVivo from 'pages/ChacoVivo';
+import SFMWastePlant from 'pages/SFMWastePlant';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +35,8 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/chaco-vivo" element={<ChacoVivo />} />
+            <Route path="/sfm-waste" element={<SFMWastePlant />} />
           </Routes>
           <MKBox px={1}>
             <Footer />

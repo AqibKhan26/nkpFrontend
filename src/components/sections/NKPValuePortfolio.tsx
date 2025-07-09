@@ -50,7 +50,7 @@ export default function NKPValuePortfolio() {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={4} justifyContent="center" display="flex">
+        <Grid container spacing={4} display="flex">
           {[{
             title: "CHACO VIVO",
             subtitle: "Largest VCS-CCBS REDD+ conservation project in Paraguayan Chaco ecosystem",
@@ -66,12 +66,13 @@ export default function NKPValuePortfolio() {
             link: "/sfm-waste",
             bg: "#9fc45b"
           }].map(({ title, subtitle, description, image, link, bg }) => (
-            <Grid item xs={12} md={6} key={title} display="flex">
+            <Grid item xs={12} md={6} key={title} display='flex'>
               <motion.div
                 initial={{ opacity: 0, x: bg === "#0d8548" ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
+                style={{ width: '100%' }}
               >
                 <Card sx={{
                   backgroundColor: "rgba(255,255,255,0.1)",
@@ -82,7 +83,7 @@ export default function NKPValuePortfolio() {
                   flexDirection: "column",
                   justifyContent: "space-between",
                   height: "100%",
-                  width: "100%"
+                  width:"100%"
                 }}>
                   <CardMedia
                     component="img"
