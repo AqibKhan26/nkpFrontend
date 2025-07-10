@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --nkp-primary: #0d8548;
+  --nkp-secondary: #9fc45b;
 }
 
 a {
@@ -18,6 +20,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -31,7 +34,8 @@ body {
   overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
 }
@@ -52,9 +56,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -65,9 +71,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -129,7 +137,8 @@ button:focus-visible {
   margin: 0.5rem auto;
   background: linear-gradient(90deg, #0d8548, #9fc45b);
   border-radius: 2px;
-  transform: translateY(-50px) !important; /* default */
+  transform: translateY(-50px) !important;
+  /* default */
 
   /* 480px to 719px */
   @media (min-width: 480px) and (max-width: 719px) {
@@ -144,33 +153,42 @@ button:focus-visible {
 
 .hero-text {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600; /* font-semibold */
-  line-height: 1.625; /* leading-relaxed */
+  font-weight: 600;
+  /* font-semibold */
+  line-height: 1.625;
+  /* leading-relaxed */
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
-  padding-left: 1rem; /* px-4 */
+  padding-left: 1rem;
+  /* px-4 */
   padding-right: 1rem;
-  max-width: 64rem; /* max-w-5xl */
+  max-width: 64rem;
+  /* max-w-5xl */
   margin-left: auto;
   margin-right: auto;
   text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
 
-  font-size: 0.875rem; /* base: text-sm */
+  font-size: 0.875rem;
+  /* base: text-sm */
 
-  transform: translateY(-20px); /* default */
+  transform: translateY(-20px);
+  /* default */
 
   /* Responsive font sizes */
   @media (min-width: 640px) {
-    font-size: 1rem; /* sm:text-base */
+    font-size: 1rem;
+    /* sm:text-base */
   }
 
   @media (min-width: 768px) {
-    font-size: 1.125rem; /* md:text-lg */
+    font-size: 1.125rem;
+    /* md:text-lg */
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.25rem; /* lg:text-xl */
+    font-size: 1.25rem;
+    /* lg:text-xl */
   }
 
   /* Responsive Y shift */
@@ -182,14 +200,17 @@ button:focus-visible {
     transform: translateY(-60px) !important;
   }
 }
+
 /* Container */
 .footer {
   background-color: #FAFAFA;
   padding: 1.5rem 0;
   position: relative;
   font-family: system-ui, Arial, sans-serif;
-  color: #4B5563; /* Tailwind gray-600 equivalent */
-  font-size: 0.75rem; /* text-xs */
+  color: #4B5563;
+  /* Tailwind gray-600 equivalent */
+  font-size: 0.75rem;
+  /* text-xs */
 }
 
 .container {
@@ -220,7 +241,8 @@ button:focus-visible {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 0.75rem;
-  color: #1F2937; /* gray-800 */
+  color: #1F2937;
+  /* gray-800 */
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
 }
@@ -232,20 +254,22 @@ button:focus-visible {
   margin: 0;
 }
 
-.nav-grid li + li {
+.nav-grid li+li {
   margin-top: 0.5rem;
 }
 
 /* Links */
 .nav-grid a {
-  color: #4B5563; /* gray-600 */
+  color: #4B5563;
+  /* gray-600 */
   font-size: 0.75rem;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .nav-grid a:hover {
-  color: #10B981; /* example for nkp-primary green */
+  color: #10B981;
+  /* example for nkp-primary green */
 }
 
 /* Office grid */
@@ -342,6 +366,7 @@ button:focus-visible {
   .desktop-only {
     display: flex;
   }
+
   .mobile-only {
     display: none;
   }
@@ -356,7 +381,8 @@ button:focus-visible {
 
 /* Legal section */
 .legal {
-  border-top: 1px solid #E5E7EB; /* gray-200 */
+  border-top: 1px solid #E5E7EB;
+  /* gray-200 */
   padding-top: 2rem;
   text-align: center;
   font-size: 0.75rem;
@@ -378,10 +404,12 @@ button:focus-visible {
 }
 
 .legal-links a:hover {
-  color: #10B981; /* nkp-primary green */
+  color: #10B981;
+  /* nkp-primary green */
 }
 
 .legal-links span {
-  color: #9CA3AF; /* gray-400 */
+  color: #9CA3AF;
+  /* gray-400 */
   user-select: none;
 }

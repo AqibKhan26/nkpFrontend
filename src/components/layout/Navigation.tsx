@@ -91,7 +91,6 @@ export default function Navigation() {
               </ListItemButton>
             ) : (
               <ListItemButton
-                component="a"
                 href={item.href}
                 component={HashLink}
                 to={item.href}

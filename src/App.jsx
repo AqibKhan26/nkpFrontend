@@ -18,9 +18,9 @@ import Disclaimer from 'pages/Disclaimer';
 import Terms from 'pages/Terms';
 import ChacoVivo from 'pages/ChacoVivo';
 import SFMWastePlant from 'pages/SFMWastePlant';
+import Whitepaper from 'pages/Whitepaper';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -37,6 +37,7 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/chaco-vivo" element={<ChacoVivo />} />
             <Route path="/sfm-waste" element={<SFMWastePlant />} />
+            <Route path="/whitepaper" element={<Whitepaper/>} />
           </Routes>
           <MKBox px={1}>
             <Footer />
