@@ -19,6 +19,7 @@ import Terms from 'pages/Terms';
 import ChacoVivo from 'pages/ChacoVivo';
 import SFMWastePlant from 'pages/SFMWastePlant';
 import Whitepaper from 'pages/Whitepaper';
+import NotFound404 from 'pages/NotFound404';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
             <Route path="/chaco-vivo" element={<ChacoVivo />} />
             <Route path="/sfm-waste" element={<SFMWastePlant />} />
             <Route path="/whitepaper" element={<Whitepaper/>} />
+            <Route path="/404" element={<NotFound404/>} />
+            <Route path="*" element={<NotFound404/>} />
           </Routes>
           <MKBox px={1}>
             <Footer />
