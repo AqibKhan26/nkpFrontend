@@ -8,6 +8,8 @@ import WhitepaperMarket from "components/WhitepaperComponents/WhitepaperMarket";
 import WhitepaperTokenomics from "components/WhitepaperComponents/WhitepaperTokenomics";
 import WhitepaperTechnology from "components/WhitepaperComponents/WhitepaperTechnology";
 import WhitepaperConclusion from "components/WhitepaperComponents/WhitepaperConclusion";
+import WhitepaperBenefits from "components/WhitepaperComponents/WhitepaperBenefits";
+import WhitepaperArchitecture from "components/WhitepaperComponents/WhitepaperArchitecture";
 
 const Whitepaper = () => {
     return (
@@ -30,7 +32,8 @@ const Whitepaper = () => {
                     px: { xs: 2, md: 4 },
                     pt: 10,
                     pb: 6,
-                    scrollBehavior: 'smooth'
+                    scrollBehavior: 'smooth',
+                    bgcolor:'#fff'
                 }}
             >
                 <WhitepaperHeader />
@@ -38,6 +41,8 @@ const Whitepaper = () => {
                 <WhitepaperMarket />
                 <WhitepaperTokenomics/>
                 <WhitepaperTechnology />
+                <WhitepaperBenefits/>
+                <WhitepaperArchitecture/>
                 <WhitepaperConclusion/>
             </Box>
         </Box>
